@@ -26,6 +26,11 @@ class Dog
     @age = args[:age]
     @weight = args[:weight]
   end
+
+  def self.find(num)
+    $db.execute("SELECT * FROM dogs WHERE id = #{num};")
+  end
+
 end
 
 
@@ -37,5 +42,5 @@ end
 p Dog.all
 p Dog.find(1)
 dog2 = Dog.find(2)
-ozu = Dog.create(name: 'ozu', age: 6, weight: 14)
-p Dog.where("name = ?", ozu.name)
+# ozu = Dog.create(name: 'ozu', age: 6, weight: 14)
+# p Dog.where("name = ?", ozu.name)
